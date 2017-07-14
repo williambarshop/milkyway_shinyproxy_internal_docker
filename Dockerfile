@@ -1,4 +1,4 @@
-FROM openanalytics/r-base
+FROM r-base:3.3.3
 
 MAINTAINER William Barshop "wbarshop@ucla.edu"
 
@@ -12,7 +12,6 @@ RUN apt-get update && apt-get install -y \
     libxt-dev \
     libssl-dev \
     libssh2-1-dev \
-    libssl1.0.0 \
     libxml2-dev \
     default-jre \
     default-jdk \
@@ -20,6 +19,7 @@ RUN apt-get update && apt-get install -y \
     librsvg2-dev \
     librsvg2-bin \
     libv8-3.14-dev
+#    libssl1.0.0 \
 
 
 # basic shiny functionality and a bunch of dependencies...
