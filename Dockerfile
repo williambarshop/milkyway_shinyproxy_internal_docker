@@ -49,7 +49,9 @@ RUN pip install bioblend
 #Now let's grab a copy of Milkyway (ShinyApp) from github to load into the image...
 RUN mkdir /root/milkyway
 RUN git clone https://github.com/heejongkim/MilkyWay_Frontend.git
-RUN find MilkyWay_Frontend/ -type f -print0 | xargs -0 sed -i 's/openms.bioinformatics.ucla.edu/milkyway-galaxy/g'
+
+#RUN find MilkyWay_Frontend/ -type f -print0 | xargs -0 sed -i 's/openms.bioinformatics.ucla.edu/milkyway-galaxy/g'
+RUN find MilkyWay_Frontend/ -type f -print0 | xargs -0 sed -i 's/192.168.2.102/milkyway-galaxy/g'
 RUN mv MilkyWay_Frontend/* /root/milkyway && rm -rf MilkyWay_Frontend && mv root/milkyway/Packages_from_Sources/* .
 
 RUN R -e "install.packages('featureViewer.tar.gz',type='source',repos=NULL)"
