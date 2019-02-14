@@ -57,7 +57,7 @@ RUN pip install bioblend
 #Now let's grab a copy of Milkyway (ShinyApp) from github to load into the image...
 RUN mkdir /root/milkyway
 #RUN echo '2018-01-29' && git clone https://github.com/heejongkim/MilkyWay_Frontend.git
-RUN echo '2018-01-31' && git clone https://github.com/wohllab/MilkyWay_Frontend.git
+RUN echo 'Image build from commit commit_rev and CI_job_ID on DATE-REPLACE' && git clone https://github.com/wohllab/MilkyWay_Frontend.git -b dev
 
 #RUN find MilkyWay_Frontend/ -type f -print0 | xargs -0 sed -i 's/openms.bioinformatics.ucla.edu/milkyway-galaxy/g'
 RUN find MilkyWay_Frontend/ -type f -print0 | xargs -0 sed -i 's/192.168.2.102/milkyway-galaxy/g'
